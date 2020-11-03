@@ -1,20 +1,10 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 
-import { Home } from '../views';
-
 const routes: Array<RouteRecordRaw> = [
+  { path: '/', redirect: '/todos' },
   {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import('../views/about').then(m => m.About)
+    path: '/todos',
+    component: () => import('../pages/todo').then(m => m.TodoListPage)
   }
 ];
 
