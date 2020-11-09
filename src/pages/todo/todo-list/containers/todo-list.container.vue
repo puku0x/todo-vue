@@ -1,11 +1,18 @@
 <template>
-  <TodoList :todos="todos" />
+  <TodoList
+    :todos="todos"
+    :offset="offset"
+    :limit="limit"
+    @change-offset="changeOffset"
+    @change-limit="changeLimit"
+  />
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, watchEffect } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 
-import { useTodoStore } from '@/store/todo';
+import { useTodoStore } from '@/store';
 
 import { TodoList } from '../components';
 
@@ -14,13 +21,48 @@ export default defineComponent({
   components: {
     TodoList
   },
-  setup() {
+  props: {
+    offset: {
+      type: Number,
+      required: true
+    },
+    limit: {
+      type: Number,
+      required: true
+    }
+  },
+  setup(props) {
+    const route = useRoute();
+    const router = useRouter();
     const { todos, fetchAll } = useTodoStore();
 
-    fetchAll({ offset: 0, limit: 10 });
+    watchEffect(() => {
+      fetchAll({
+        offset: props.offset,
+        limit: props.limit
+      });
+    });
+
+    const changeOffset = (offset: number) => {
+      const query = {
+        ...route.query,
+        offset
+      };
+      router.push({ path: route.path, query });
+    };
+
+    const changeLimit = (limit: number) => {
+      const query = {
+        ...route.query,
+        limit
+      };
+      router.push({ path: route.path, query });
+    };
 
     return {
-      todos
+      todos,
+      changeOffset,
+      changeLimit
     };
   }
 });
