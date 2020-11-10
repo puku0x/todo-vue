@@ -1,4 +1,8 @@
 <template>
+  <h2>todo-list</h2>
+  <p>
+    <router-link to="/todos/new">Add a new todo</router-link>
+  </p>
   <form>
     offset
     <input
@@ -18,7 +22,14 @@
     />
   </form>
   <ul>
-    <li v-for="todo in todos" :key="todo.id">{{ todo.title }}</li>
+    <li v-for="todo in todos" :key="todo.id">
+      <router-link
+        :class="[{ completed: todo.completed }]"
+        :to="`/todos/${todo.id}`"
+      >
+        {{ todo.title }}
+      </router-link>
+    </li>
   </ul>
 </template>
 
@@ -41,7 +52,7 @@ export default defineComponent({
       required: true
     }
   },
-  emits: ['change-offset', 'changeOffset', 'change-limit', 'changeLimit'],
+  emits: ['change-offset', 'change-limit'],
   setup(props, { emit }) {
     const changeOffset = (event: Event) => {
       if (event.target instanceof HTMLInputElement) {
