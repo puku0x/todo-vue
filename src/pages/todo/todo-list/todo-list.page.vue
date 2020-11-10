@@ -5,9 +5,17 @@
 
 <script lang="ts">
 import { defineComponent, ref, watch } from 'vue';
-import { useRoute } from 'vue-router';
+import { LocationQuery, useRoute } from 'vue-router';
 
 import { TodoListContainer } from './containers';
+
+const toOffset = (query: LocationQuery) => {
+  return Number(query['offset'] || 0);
+};
+
+const toLimit = (query: LocationQuery) => {
+  return Number(query['limit'] || 10);
+};
 
 export default defineComponent({
   name: 'TodoListPage',
@@ -16,14 +24,14 @@ export default defineComponent({
   },
   setup() {
     const route = useRoute();
-    const offset = ref(Number(route.query['offset'] || 0));
-    const limit = ref(Number(route.query['limit'] || 10));
+    const offset = ref(toOffset(route.query));
+    const limit = ref(toLimit(route.query));
 
     watch(
       () => route.query,
       query => {
-        offset.value = Number(query['offset']) || 0;
-        limit.value = Number(query['limit']) || 10;
+        offset.value = toOffset(query);
+        limit.value = toLimit(query);
       }
     );
 
