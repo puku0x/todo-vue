@@ -29,6 +29,7 @@ export const actions: ActionTree<TodoState, RootState> = {
   ) => {
     try {
       const { offset, limit } = arg;
+      commit(FETCH_ALL_REQUEST);
       const result = await todoService.fetchAll(offset, limit);
       commit(FETCH_ALL_SUCCESS, result);
       return { todos: result };
@@ -40,6 +41,7 @@ export const actions: ActionTree<TodoState, RootState> = {
   [FETCH_REQUEST]: async ({ commit }, arg: { id: string }) => {
     try {
       const { id } = arg;
+      commit(FETCH_REQUEST, id);
       const result = await todoService.fetch(id);
       commit(FETCH_SUCCESS, result);
       return { todo: result };
@@ -51,6 +53,7 @@ export const actions: ActionTree<TodoState, RootState> = {
   [CREATE_REQUEST]: async ({ commit }, arg: { todo: TodoCreateDto }) => {
     try {
       const { todo } = arg;
+      commit(CREATE_REQUEST);
       const result = await todoService.create(todo);
       commit(CREATE_SUCCESS, result);
       return { todo: result };
@@ -65,6 +68,7 @@ export const actions: ActionTree<TodoState, RootState> = {
   ) => {
     try {
       const { id, todo } = arg;
+      commit(UPDATE_REQUEST);
       const result = await todoService.update(id, todo);
       commit(UPDATE_SUCCESS, result);
       return { todo: result };
@@ -76,6 +80,7 @@ export const actions: ActionTree<TodoState, RootState> = {
   [REMOVE_REQUEST]: async ({ commit }, arg: { id: string }) => {
     try {
       const { id } = arg;
+      commit(REMOVE_REQUEST);
       const result = await todoService.remove(id);
       commit(REMOVE_SUCCESS, result);
       return { id: result };

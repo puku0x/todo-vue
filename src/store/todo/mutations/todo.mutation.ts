@@ -32,12 +32,12 @@ export const mutations: MutationTree<TodoState> = {
   [FETCH_ALL_FAILURE]: state => {
     state.isFetching = false;
   },
-  [FETCH_REQUEST]: state => {
+  [FETCH_REQUEST]: (state, id: string) => {
     state.isFetching = true;
+    state.selectedId = id;
   },
   [FETCH_SUCCESS]: (state, todo: Todo) => {
     state.isFetching = false;
-    state.selectedId = todo.id;
     state.todos = state.todos.map(t => t.id).includes(todo.id)
       ? state.todos.map(t => (t.id === todo.id ? todo : t))
       : [...state.todos, todo];
