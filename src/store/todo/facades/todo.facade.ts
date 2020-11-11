@@ -1,7 +1,8 @@
 import { computed } from 'vue';
 import { useStore } from 'vuex';
 
-import { Todo, TodoCreateDto } from '../../../models';
+import { Todo, TodoCreateDto } from '@/models';
+
 import { CREATE_REQUEST, FETCH_ALL_REQUEST } from '../actions';
 import { featureKey } from '../states';
 

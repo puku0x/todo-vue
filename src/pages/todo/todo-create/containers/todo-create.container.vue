@@ -6,10 +6,10 @@
 import { defineComponent } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
+import { TodoCreateDto } from '@/models';
 import { useTodoStore } from '@/store';
 
 import { TodoCreate } from '../components';
-import { TodoCreateDto } from '@/models';
 
 export default defineComponent({
   name: 'TodoCreateContainer',

@@ -23,7 +23,7 @@
 <script lang="ts">
 import { defineComponent, reactive } from 'vue';
 
-import { TodoCreateDto } from '../../../../models';
+import { TodoCreateDto } from '@/models';
 
 interface FormValues {
   title: string;

@@ -1,6 +1,7 @@
 import { MutationTree } from 'vuex';
 
-import { Todo } from '../../../models';
+import { Todo } from '@/models';
+
 import {
   FETCH_ALL_REQUEST,
   FETCH_ALL_SUCCESS,

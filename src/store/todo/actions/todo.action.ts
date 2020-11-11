@@ -1,7 +1,8 @@
 import { ActionTree } from 'vuex';
 
-import { TodoCreateDto } from '../../../models';
-import { todoService } from '../../../services';
+import { TodoCreateDto } from '@/models';
+import { todoService } from '@/services';
+
 import { RootState } from '../../store';
 import { TodoState } from '../states';
 

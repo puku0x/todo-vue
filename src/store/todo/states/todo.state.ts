@@ -1,4 +1,4 @@
-import { Todo } from '../../../models';
+import { Todo } from '@/models';
 
 export const featureKey = 'todos';
 
