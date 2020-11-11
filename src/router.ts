@@ -10,6 +10,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/todos/new',
     component: () =>
       import('./pages/todo/todo-create').then(m => m.TodoCreatePage)
+  },
+  {
+    path: '/todos/:id',
+    component: () =>
+      import('./pages/todo/todo-detail').then(m => m.TodoDetailPage)
   }
 ];
 
