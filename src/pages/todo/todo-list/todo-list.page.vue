@@ -1,5 +1,4 @@
 <template>
-  <p>todo-list</p>
   <TodoListContainer :offset="offset" :limit="limit" />
 </template>
 
