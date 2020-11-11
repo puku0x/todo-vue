@@ -1,5 +1,4 @@
 <template>
-  <p>todo-create</p>
   <TodoCreateContainer />
 </template>
 
