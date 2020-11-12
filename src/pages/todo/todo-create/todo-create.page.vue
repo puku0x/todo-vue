@@ -3,8 +3,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, watch } from 'vue';
-import { LocationQuery, useRoute } from 'vue-router';
+import { defineComponent } from 'vue';
 
 import { TodoCreateContainer } from './containers';
 
