@@ -50,7 +50,7 @@ export const mutations: MutationTree<TodoState> = {
   },
   [CREATE_SUCCESS]: (state, todo: Todo) => {
     state.isFetching = false;
-    state.todos.push(todo);
+    state.todos = [...state.todos, todo];
   },
   [CREATE_FAILURE]: state => {
     state.isFetching = false;
@@ -60,7 +60,7 @@ export const mutations: MutationTree<TodoState> = {
   },
   [UPDATE_SUCCESS]: (state, todo: Todo) => {
     state.isFetching = false;
-    state.todos.map(t => (t.id === todo.id ? todo : t));
+    state.todos = state.todos.map(t => (t.id === todo.id ? todo : t));
   },
   [UPDATE_FAILURE]: state => {
     state.isFetching = false;
@@ -70,7 +70,7 @@ export const mutations: MutationTree<TodoState> = {
   },
   [REMOVE_SUCCESS]: (state, id: string) => {
     state.isFetching = false;
-    state.todos.filter(t => t.id !== id);
+    state.todos = state.todos.filter(t => t.id !== id);
   },
   [REMOVE_FAILURE]: state => {
     state.isFetching = false;
