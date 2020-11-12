@@ -6,6 +6,7 @@ import * as todo from './todo';
 export interface RootState {}
 
 export const store = createStore<RootState>({
+  strict: process.env.NODE_ENV !== 'production',
   modules: {
     [todo.featureKey]: todo.module
   }
