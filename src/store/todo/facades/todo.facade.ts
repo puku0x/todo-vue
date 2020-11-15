@@ -34,7 +34,10 @@ export const useTodoStore = () => {
     return store.dispatch(`${featureKey}/${CREATE_REQUEST}`, arg);
   };
 
-  const update = (arg: { todo: TodoUpdateDto }): Promise<{ todo: Todo }> => {
+  const update = (arg: {
+    id: string;
+    todo: TodoUpdateDto;
+  }): Promise<{ todo: Todo }> => {
     return store.dispatch(`${featureKey}/${UPDATE_REQUEST}`, arg);
   };
 
