@@ -15,6 +15,10 @@ const routes: Array<RouteRecordRaw> = [
     path: '/todos/:id',
     component: () =>
       import('./pages/todo/todo-detail').then(m => m.TodoDetailPage)
+  },
+  {
+    path: '/todos/:id/edit',
+    component: () => import('./pages/todo/todo-edit').then(m => m.TodoEditPage)
   }
 ];
 
