@@ -3,7 +3,7 @@
   <h2>todo-detail</h2>
   <template v-if="todo">
     <p>
-      <router-link :to="`/todos/${todo.id}`">Edit this todo</router-link>
+      <router-link :to="`/todos/${todo.id}/edit`">Edit this todo</router-link>
     </p>
     <table>
       <tbody>
