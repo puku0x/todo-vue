@@ -1,9 +1,9 @@
 <template>
   <router-link to="/todos">back to list</router-link>
   <h2>todo-create</h2>
-  <form novalidate @submit.prevent="submit">
+  <form novalidate @submit.prevent="handleSubmit">
     <p>
-      <button type="submit" :disabled="isFetching">
+      <button type="submit" :disabled="isFetching || !isValid">
         Save
       </button>
     </p>
@@ -12,7 +12,7 @@
         <tr>
           <td>title</td>
           <td>
-            <input type="text" name="title" v-model="form.title" />
+            <input type="text" name="title" v-model="values.title" />
           </td>
         </tr>
       </tbody>
@@ -21,13 +21,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from 'vue';
+import { defineComponent } from 'vue';
 
 import { TodoCreateDto } from '@/models';
 
-interface FormValues {
-  title: string;
-}
+import { useTodoCreatePresenter } from './todo-create.presenter';
 
 export default defineComponent({
   name: 'TodoCreate',
@@ -39,20 +37,18 @@ export default defineComponent({
   },
   emits: ['on-create'],
   setup(props, { emit }) {
-    const form = reactive<FormValues>({
-      title: ''
-    });
-
-    const submit = () => {
-      const todo: TodoCreateDto = {
-        title: form.title
-      };
+    const onCreate = (todo: TodoCreateDto) => {
       emit('on-create', todo);
     };
 
+    const { isValid, values, handleSubmit } = useTodoCreatePresenter({
+      onCreate
+    });
+
     return {
-      submit,
-      form
+      isValid,
+      values,
+      handleSubmit
     };
   }
 });
