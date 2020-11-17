@@ -73,3 +73,9 @@ export default defineComponent({
   }
 });
 </script>
+
+<style lang="scss" scoped>
+.completed {
+  text-decoration: line-through;
+}
+</style>
