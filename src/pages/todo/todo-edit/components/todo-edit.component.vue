@@ -2,9 +2,9 @@
   <router-link to="/todos">Back to list</router-link>
   <h2>todo-edit</h2>
   <template v-if="todo">
-    <form novalidate @submit.prevent="submit">
+    <form novalidate @submit.prevent="handleSubmit">
       <p>
-        <button type="submit" :disabled="isFetching">
+        <button type="submit" :disabled="isFetching || !isValid">
           Save
         </button>
       </p>
@@ -13,7 +13,7 @@
           <tr>
             <td>title</td>
             <td>
-              <input type="text" name="title" v-model="form.title" />
+              <input type="text" name="title" v-model="values.title" />
             </td>
           </tr>
           <tr>
@@ -22,7 +22,7 @@
               <input
                 type="checkbox"
                 name="completed"
-                v-model="form.completed"
+                v-model="values.completed"
               />
             </td>
           </tr>
@@ -34,14 +34,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, watchEffect } from 'vue';
+import { Ref, defineComponent, toRef } from 'vue';
 
-import { TodoUpdateDto } from '@/models';
+import { Todo, TodoUpdateDto } from '@/models';
 
-interface FormValues {
-  title: string;
-  completed: boolean;
-}
+import { useTodoEditPresenter } from './todo-edit.presenter';
 
 export default defineComponent({
   name: 'TodoEdit',
@@ -57,29 +54,19 @@ export default defineComponent({
   },
   emits: ['on-update'],
   setup(props, { emit }) {
-    const form = reactive<FormValues>({
-      title: props.todo?.title,
-      completed: props.todo?.completed
-    });
-
-    const submit = () => {
-      const id = props.todo.id;
-      const todo: TodoUpdateDto = {
-        id,
-        title: form.title,
-        completed: form.completed
-      };
+    const onUpdate = (id: string, todo: TodoUpdateDto) => {
       emit('on-update', id, todo);
     };
 
-    watchEffect(() => {
-      form.title = props.todo?.title;
-      form.completed = props.todo?.completed;
+    const { isValid, values, handleSubmit } = useTodoEditPresenter({
+      todo: toRef(props, 'todo') as Ref<Todo | null>,
+      onUpdate
     });
 
     return {
-      submit,
-      form
+      isValid,
+      values,
+      handleSubmit
     };
   }
 });
