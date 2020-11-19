@@ -34,13 +34,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { PropType, defineComponent } from 'vue';
+
+import { Todo } from '@/models';
 
 export default defineComponent({
   name: 'TodoList',
   props: {
     todos: {
-      type: Object,
+      type: Array as PropType<Todo[]>,
       required: true
     },
     offset: {
