@@ -30,7 +30,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { PropType, defineComponent } from 'vue';
+
+import { Todo } from '@/models';
 
 export default defineComponent({
   name: 'TodoDetail',
@@ -40,7 +42,7 @@ export default defineComponent({
       default: undefined
     },
     todo: {
-      type: Object,
+      type: Object as PropType<Todo | null>,
       default: null
     }
   },
