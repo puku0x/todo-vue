@@ -20,10 +20,10 @@ export const useTodoEditPresenter = (arg: {
   todo: Ref<Todo | null>;
   onUpdate?: (id: string, todo: TodoUpdateDto) => void;
 }) => {
-  const { todo, onUpdate } = arg;
+  const { onUpdate } = arg;
   const values = reactive<FormValues>({
-    title: todo.value?.title ?? '',
-    completed: todo.value?.completed ?? false
+    title: '',
+    completed: false
   });
   const errors = computed(() => ({
     title: values.title.length === 0 ? 'title is required' : undefined
@@ -33,15 +33,16 @@ export const useTodoEditPresenter = (arg: {
   );
 
   const handleSubmit = () => {
-    const t = unref(todo);
-    if (t && isValid.value) {
-      onUpdate && onUpdate(t.id, toDto(t, values));
+    const todo = unref(arg.todo);
+    if (isValid.value && todo) {
+      onUpdate && onUpdate(todo.id, toDto(todo, values));
     }
   };
 
   watchEffect(() => {
-    values.title = todo?.value?.title ?? '';
-    values.completed = todo?.value?.completed ?? false;
+    const todo = unref(arg.todo);
+    values.title = todo?.title ?? '';
+    values.completed = todo?.completed ?? false;
   });
 
   return {
