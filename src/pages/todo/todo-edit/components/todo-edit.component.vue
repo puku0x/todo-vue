@@ -34,7 +34,7 @@
 </template>
 
 <script lang="ts">
-import { Ref, defineComponent, toRef } from 'vue';
+import { PropType, defineComponent, toRef } from 'vue';
 
 import { Todo, TodoUpdateDto } from '@/models';
 
@@ -48,7 +48,7 @@ export default defineComponent({
       default: undefined
     },
     todo: {
-      type: Object,
+      type: Object as PropType<Todo | null>,
       default: null
     }
   },
@@ -59,7 +59,7 @@ export default defineComponent({
     };
 
     const { isValid, values, handleSubmit } = useTodoEditPresenter({
-      todo: toRef(props, 'todo') as Ref<Todo | null>,
+      todo: toRef(props, 'todo'),
       onUpdate
     });
 
