@@ -14,7 +14,7 @@ import { useRoute, useRouter } from 'vue-router';
 
 import { useTodoStore } from '@/store';
 
-import { TodoList } from '../components';
+import { TodoList } from '../../components';
 
 export default defineComponent({
   name: 'TodoListContainer',
