@@ -7,7 +7,7 @@ import { defineComponent } from 'vue';
 
 import { useTodoStore } from '@/store';
 
-import { TodoDetail } from '../components';
+import { TodoDetail } from '../../components';
 
 export default defineComponent({
   name: 'TodoDetailContainer',
