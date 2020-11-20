@@ -9,7 +9,7 @@ import { useRouter } from 'vue-router';
 import { TodoUpdateDto } from '@/models';
 import { useTodoStore } from '@/store';
 
-import { TodoEdit } from '../components';
+import { TodoEdit } from '../../components';
 
 export default defineComponent({
   name: 'TodoEditContainer',

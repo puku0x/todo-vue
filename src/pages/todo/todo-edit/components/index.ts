@@ -1,1 +1,1 @@
-export { default as TodoEdit } from './todo-edit.component.vue';
+export * from './todo-edit';
