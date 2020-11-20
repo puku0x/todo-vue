@@ -9,7 +9,7 @@ import { useRouter } from 'vue-router';
 import { TodoCreateDto } from '@/models';
 import { useTodoStore } from '@/store';
 
-import { TodoCreate } from '../components';
+import { TodoCreate } from '../../components';
 
 export default defineComponent({
   name: 'TodoCreateContainer',
