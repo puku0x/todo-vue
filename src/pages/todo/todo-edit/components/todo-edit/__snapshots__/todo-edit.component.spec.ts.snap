@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoEdit render 1`] = `
+<a href="/todos" class="">Back to list</a>
+<h2>todo-edit</h2>
+<form novalidate="">
+  <p><button type="submit"> Save </button></p>
+  <table>
+    <tbody>
+      <tr>
+        <td>title</td>
+        <td><input type="text" name="title"></td>
+      </tr>
+      <tr>
+        <td>completed</td>
+        <td><input type="checkbox" name="completed"></td>
+      </tr>
+    </tbody>
+  </table>
+</form>
+`;
