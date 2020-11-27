@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoList render 1`] = `
+<h2>todo-list</h2>
+<p><a href="/todos/new" class="">Add a new todo</a></p>
+<form> offset <input type="number" min="0" name="offset"> limit <input type="number" min="0" name="limit"></form>
+<ul>
+  <li><a href="/todos/1" class="">title</a></li>
+  <li><a href="/todos/2" class="">title</a></li>
+  <li><a href="/todos/3" class="">title</a></li>
+</ul>
+`;
