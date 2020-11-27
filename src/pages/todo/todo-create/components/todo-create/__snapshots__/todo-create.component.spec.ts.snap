@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoCreate render 1`] = `
+<a href="/todos" class="">back to list</a>
+<h2>todo-create</h2>
+<form novalidate="">
+  <p><button type="submit" disabled=""> Save </button></p>
+  <table>
+    <tbody>
+      <tr>
+        <td>title</td>
+        <td><input type="text" name="title"></td>
+      </tr>
+    </tbody>
+  </table>
+</form>
+`;
