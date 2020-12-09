@@ -21,7 +21,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, defineEmit } from 'vue';
 
 import { TodoCreateDto } from '@/models';
 
@@ -35,7 +35,9 @@ export default defineComponent({
       default: false
     }
   },
-  emits: ['on-create'],
+  emits: {
+    'on-create': defineEmit<(todo: TodoCreateDto) => void>()
+  },
   setup(props, { emit }) {
     const onCreate = (todo: TodoCreateDto) => {
       emit('on-create', todo);
