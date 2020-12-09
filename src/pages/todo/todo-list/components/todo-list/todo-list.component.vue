@@ -34,7 +34,7 @@
 </template>
 
 <script lang="ts">
-import { PropType, defineComponent } from 'vue';
+import { PropType, defineComponent, defineEmit } from 'vue';
 
 import { Todo } from '@/models';
 
@@ -54,7 +54,10 @@ export default defineComponent({
       required: true
     }
   },
-  emits: ['change-offset', 'change-limit'],
+  emits: {
+    'change-offset': defineEmit<(value: string) => void>(),
+    'change-limit': defineEmit<(value: string) => void>()
+  },
   setup(props, { emit }) {
     const changeOffset = (event: Event) => {
       if (event.target instanceof HTMLInputElement) {
