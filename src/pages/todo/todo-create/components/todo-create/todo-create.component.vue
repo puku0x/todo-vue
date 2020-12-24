@@ -3,9 +3,7 @@
   <h2>todo-create</h2>
   <form novalidate @submit.prevent="handleSubmit">
     <p>
-      <button type="submit" :disabled="isFetching || !isValid">
-        Save
-      </button>
+      <button type="submit" :disabled="isFetching || !isValid">Save</button>
     </p>
     <table>
       <tbody>
@@ -32,11 +30,11 @@ export default defineComponent({
   props: {
     isFetching: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   emits: {
-    'on-create': defineEmit<(todo: TodoCreateDto) => void>()
+    'on-create': defineEmit<(todo: TodoCreateDto) => void>(),
   },
   setup(props, { emit }) {
     const onCreate = (todo: TodoCreateDto) => {
@@ -44,14 +42,14 @@ export default defineComponent({
     };
 
     const { isValid, values, handleSubmit } = useTodoCreatePresenter({
-      onCreate
+      onCreate,
     });
 
     return {
       isValid,
       values,
-      handleSubmit
+      handleSubmit,
     };
-  }
+  },
 });
 </script>

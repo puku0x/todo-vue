@@ -12,11 +12,11 @@ describe('useTodoEditPresenter', () => {
       title: 'title',
       completed: false,
       createdAt: 123456789,
-      updatedAt: 123456789
+      updatedAt: 123456789,
     } as Todo);
     const { isValid, values, handleSubmit } = useTodoEditPresenter({
       todo,
-      onUpdate
+      onUpdate,
     });
 
     expect(isValid.value).toEqual(true);

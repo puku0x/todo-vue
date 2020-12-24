@@ -39,12 +39,12 @@ export default defineComponent({
   props: {
     isFetching: {
       type: Boolean,
-      default: undefined
+      default: undefined,
     },
     todo: {
       type: Object as PropType<Todo | null>,
-      default: null
-    }
+      default: null,
+    },
   },
   setup() {
     const datePipe = (date: number) => {
@@ -52,8 +52,8 @@ export default defineComponent({
     };
 
     return {
-      datePipe
+      datePipe,
     };
-  }
+  },
 });
 </script>

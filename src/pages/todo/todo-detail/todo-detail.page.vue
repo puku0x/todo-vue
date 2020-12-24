@@ -11,15 +11,15 @@ import { TodoDetailContainer } from './containers';
 export default defineComponent({
   name: 'TodoDetailPage',
   components: {
-    TodoDetailContainer
+    TodoDetailContainer,
   },
   setup() {
     const route = useRoute();
     const id = ref(String(route.params['id']));
 
     return {
-      id
+      id,
     };
-  }
+  },
 });
 </script>

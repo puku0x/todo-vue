@@ -8,7 +8,7 @@ export interface FormValues {
 
 const toDto = (values: FormValues) => {
   const value: TodoCreateDto = {
-    title: values.title
+    title: values.title,
   };
   return value;
 };
@@ -18,13 +18,13 @@ export const useTodoCreatePresenter = (arg: {
 }) => {
   const { onCreate } = arg;
   const values = reactive<FormValues>({
-    title: ''
+    title: '',
   });
   const errors = computed(() => ({
-    title: values.title.length === 0 ? 'title is required' : undefined
+    title: values.title.length === 0 ? 'title is required' : undefined,
   }));
   const isValid = computed(
-    () => Object.values(errors.value).filter(error => !!error).length === 0
+    () => Object.values(errors.value).filter((error) => !!error).length === 0
   );
 
   const handleSubmit = () => {
@@ -37,6 +37,6 @@ export const useTodoCreatePresenter = (arg: {
     errors,
     isValid,
     values,
-    handleSubmit
+    handleSubmit,
   } as const;
 };

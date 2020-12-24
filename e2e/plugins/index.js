@@ -20,6 +20,6 @@ module.exports = (on, config) => {
     integrationFolder: 'e2e/specs',
     screenshotsFolder: 'e2e/screenshots',
     videosFolder: 'e2e/videos',
-    supportFile: 'e2e/support/index.js'
+    supportFile: 'e2e/support/index.js',
   });
 };

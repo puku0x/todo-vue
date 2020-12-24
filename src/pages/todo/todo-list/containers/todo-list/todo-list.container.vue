@@ -19,17 +19,17 @@ import { TodoList } from '../../components';
 export default defineComponent({
   name: 'TodoListContainer',
   components: {
-    TodoList
+    TodoList,
   },
   props: {
     offset: {
       type: Number,
-      required: true
+      required: true,
     },
     limit: {
       type: Number,
-      required: true
-    }
+      required: true,
+    },
   },
   setup(props) {
     const route = useRoute();
@@ -39,14 +39,14 @@ export default defineComponent({
     watchEffect(() => {
       fetchAll({
         offset: props.offset,
-        limit: props.limit
+        limit: props.limit,
       });
     });
 
     const changeOffset = (offset: number) => {
       const query = {
         ...route.query,
-        offset
+        offset,
       };
       router.push({ path: route.path, query });
     };
@@ -54,7 +54,7 @@ export default defineComponent({
     const changeLimit = (limit: number) => {
       const query = {
         ...route.query,
-        limit
+        limit,
       };
       router.push({ path: route.path, query });
     };
@@ -62,8 +62,8 @@ export default defineComponent({
     return {
       todos,
       changeOffset,
-      changeLimit
+      changeLimit,
     };
-  }
+  },
 });
 </script>

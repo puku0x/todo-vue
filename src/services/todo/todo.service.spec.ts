@@ -20,22 +20,22 @@ describe('TodoService', () => {
         title: 'title',
         completed: false,
         createdAt: 123456789,
-        updatedAt: 123456789
+        updatedAt: 123456789,
       },
       {
         id: '2',
         title: 'title',
         completed: false,
         createdAt: 123456789,
-        updatedAt: 123456789
+        updatedAt: 123456789,
       },
       {
         id: '3',
         title: 'title',
         completed: false,
         createdAt: 123456789,
-        updatedAt: 123456789
-      }
+        updatedAt: 123456789,
+      },
     ];
 
     const fetchMock = jest.fn().mockResolvedValueOnce({ json: () => todos });
@@ -48,8 +48,8 @@ describe('TodoService', () => {
       {
         method: 'GET',
         headers: {
-          'Content-Type': 'application/json'
-        }
+          'Content-Type': 'application/json',
+        },
       }
     );
     expect(result).toBe(todos);
@@ -62,7 +62,7 @@ describe('TodoService', () => {
       title: 'title',
       completed: false,
       createdAt: 123456789,
-      updatedAt: 123456789
+      updatedAt: 123456789,
     };
 
     const fetchMock = jest.fn().mockResolvedValueOnce({ json: () => todo });
@@ -73,8 +73,8 @@ describe('TodoService', () => {
     expect(fetchMock).toHaveBeenCalledWith(`${baseUrl}/todos/${id}`, {
       method: 'GET',
       headers: {
-        'Content-Type': 'application/json'
-      }
+        'Content-Type': 'application/json',
+      },
     });
     expect(result).toBe(todo);
   });
@@ -85,10 +85,10 @@ describe('TodoService', () => {
       title: 'title',
       completed: false,
       createdAt: 123456789,
-      updatedAt: 123456789
+      updatedAt: 123456789,
     };
     const dto: TodoCreateDto = {
-      title: 'title'
+      title: 'title',
     };
 
     const fetchMock = jest.fn().mockResolvedValueOnce({ json: () => todo });
@@ -100,8 +100,8 @@ describe('TodoService', () => {
       method: 'POST',
       body: JSON.stringify(dto),
       headers: {
-        'Content-Type': 'application/json'
-      }
+        'Content-Type': 'application/json',
+      },
     });
     expect(result).toBe(todo);
   });
@@ -113,12 +113,12 @@ describe('TodoService', () => {
       title: 'title',
       completed: false,
       createdAt: 123456789,
-      updatedAt: 123456789
+      updatedAt: 123456789,
     };
     const dto: TodoUpdateDto = {
       id: '1',
       title: 'title',
-      completed: true
+      completed: true,
     };
 
     const fetchMock = jest.fn().mockResolvedValueOnce({ json: () => todo });
@@ -130,8 +130,8 @@ describe('TodoService', () => {
       method: 'PUT',
       body: JSON.stringify(dto),
       headers: {
-        'Content-Type': 'application/json'
-      }
+        'Content-Type': 'application/json',
+      },
     });
     expect(result).toBe(todo);
   });
@@ -147,8 +147,8 @@ describe('TodoService', () => {
     expect(fetchMock).toHaveBeenCalledWith(`${baseUrl}/todos/${id}`, {
       method: 'DELETE',
       headers: {
-        'Content-Type': 'application/json'
-      }
+        'Content-Type': 'application/json',
+      },
     });
     expect(result).toBe(id);
   });

@@ -8,7 +8,7 @@ import {
   FETCH_REQUEST,
   CREATE_REQUEST,
   UPDATE_REQUEST,
-  REMOVE_REQUEST
+  REMOVE_REQUEST,
 } from '../actions';
 import { featureKey } from '../states';
 
@@ -53,6 +53,6 @@ export const useTodoStore = () => {
     fetch,
     create,
     update,
-    remove
+    remove,
   } as const;
 };

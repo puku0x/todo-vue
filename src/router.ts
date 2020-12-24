@@ -4,25 +4,27 @@ export const routes: Array<RouteRecordRaw> = [
   { path: '/', redirect: '/todos' },
   {
     path: '/todos',
-    component: () => import('./pages/todo/todo-list').then(m => m.TodoListPage)
+    component: () =>
+      import('./pages/todo/todo-list').then((m) => m.TodoListPage),
   },
   {
     path: '/todos/new',
     component: () =>
-      import('./pages/todo/todo-create').then(m => m.TodoCreatePage)
+      import('./pages/todo/todo-create').then((m) => m.TodoCreatePage),
   },
   {
     path: '/todos/:id',
     component: () =>
-      import('./pages/todo/todo-detail').then(m => m.TodoDetailPage)
+      import('./pages/todo/todo-detail').then((m) => m.TodoDetailPage),
   },
   {
     path: '/todos/:id/edit',
-    component: () => import('./pages/todo/todo-edit').then(m => m.TodoEditPage)
-  }
+    component: () =>
+      import('./pages/todo/todo-edit').then((m) => m.TodoEditPage),
+  },
 ];
 
 export const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes,
 });

@@ -8,8 +8,8 @@ export interface RootState {}
 export const store = createStore<RootState>({
   strict: process.env.NODE_ENV !== 'production',
   modules: {
-    [todo.featureKey]: todo.module
-  }
+    [todo.featureKey]: todo.module,
+  },
 });
 
 export type Store = typeof store;

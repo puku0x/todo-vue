@@ -14,20 +14,20 @@ import { TodoEdit } from '../../components';
 export default defineComponent({
   name: 'TodoEditContainer',
   components: {
-    TodoEdit
+    TodoEdit,
   },
   props: {
     id: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   setup(props) {
     const router = useRouter();
     const { isFetching, todo, fetch, update } = useTodoStore();
 
     const onUpdate = (id: string, todo: TodoUpdateDto) => {
-      update({ id, todo }).then(payload => {
+      update({ id, todo }).then((payload) => {
         const { todo } = payload;
         router.push({ path: `/todos/${todo.id}` });
       });
@@ -38,8 +38,8 @@ export default defineComponent({
     return {
       isFetching,
       todo,
-      onUpdate
+      onUpdate,
     };
-  }
+  },
 });
 </script>

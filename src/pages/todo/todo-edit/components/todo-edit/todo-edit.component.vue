@@ -4,9 +4,7 @@
   <template v-if="todo">
     <form novalidate @submit.prevent="handleSubmit">
       <p>
-        <button type="submit" :disabled="isFetching || !isValid">
-          Save
-        </button>
+        <button type="submit" :disabled="isFetching || !isValid">Save</button>
       </p>
       <table>
         <tbody>
@@ -45,15 +43,15 @@ export default defineComponent({
   props: {
     isFetching: {
       type: Boolean,
-      default: undefined
+      default: undefined,
     },
     todo: {
       type: Object as PropType<Todo | null>,
-      default: null
-    }
+      default: null,
+    },
   },
   emits: {
-    'on-update': defineEmit<(id: string, todo: TodoUpdateDto) => void>()
+    'on-update': defineEmit<(id: string, todo: TodoUpdateDto) => void>(),
   },
   setup(props, { emit }) {
     const onUpdate = (id: string, todo: TodoUpdateDto) => {
@@ -62,14 +60,14 @@ export default defineComponent({
 
     const { isValid, values, handleSubmit } = useTodoEditPresenter({
       todo: toRef(props, 'todo'),
-      onUpdate
+      onUpdate,
     });
 
     return {
       isValid,
       values,
-      handleSubmit
+      handleSubmit,
     };
-  }
+  },
 });
 </script>

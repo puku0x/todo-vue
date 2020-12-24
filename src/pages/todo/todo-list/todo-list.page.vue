@@ -19,7 +19,7 @@ const toLimit = (query: LocationQuery) => {
 export default defineComponent({
   name: 'TodoListPage',
   components: {
-    TodoListContainer
+    TodoListContainer,
   },
   setup() {
     const route = useRoute();
@@ -28,7 +28,7 @@ export default defineComponent({
 
     watch(
       () => route.query,
-      query => {
+      (query) => {
         offset.value = toOffset(query);
         limit.value = toLimit(query);
       }
@@ -36,8 +36,8 @@ export default defineComponent({
 
     return {
       offset,
-      limit
+      limit,
     };
-  }
+  },
 });
 </script>

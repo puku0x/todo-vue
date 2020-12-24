@@ -11,7 +11,7 @@ const toDto = (todo: Todo, values: FormValues) => {
   const value: TodoUpdateDto = {
     id: todo.id,
     title: values.title,
-    completed: values.completed
+    completed: values.completed,
   };
   return value;
 };
@@ -23,13 +23,13 @@ export const useTodoEditPresenter = (arg: {
   const { onUpdate } = arg;
   const values = reactive<FormValues>({
     title: '',
-    completed: false
+    completed: false,
   });
   const errors = computed(() => ({
-    title: values.title.length === 0 ? 'title is required' : undefined
+    title: values.title.length === 0 ? 'title is required' : undefined,
   }));
   const isValid = computed(
-    () => Object.values(errors.value).filter(error => !!error).length === 0
+    () => Object.values(errors.value).filter((error) => !!error).length === 0
   );
 
   const handleSubmit = () => {
@@ -49,6 +49,6 @@ export const useTodoEditPresenter = (arg: {
     errors,
     isValid,
     values,
-    handleSubmit
+    handleSubmit,
   } as const;
 };

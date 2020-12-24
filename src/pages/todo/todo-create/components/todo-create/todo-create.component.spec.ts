@@ -9,17 +9,17 @@ describe('TodoCreate', () => {
   it('render', async () => {
     const router = createRouter({
       history: createMemoryHistory(),
-      routes
+      routes,
     });
     router.push('/todos/new');
     await router.isReady();
     const wrapper = mount(TodoCreate, {
       global: {
-        plugins: [router]
+        plugins: [router],
       },
       props: {
-        isFetching: false
-      }
+        isFetching: false,
+      },
     });
 
     expect(wrapper.html()).toMatchSnapshot();

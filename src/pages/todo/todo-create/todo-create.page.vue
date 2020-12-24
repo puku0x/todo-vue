@@ -10,7 +10,7 @@ import { TodoCreateContainer } from './containers';
 export default defineComponent({
   name: 'TodoCreatePage',
   components: {
-    TodoCreateContainer
-  }
+    TodoCreateContainer,
+  },
 });
 </script>

@@ -4,7 +4,7 @@ describe('useTodoCreatePresenter', () => {
   it('should handle submit', async () => {
     const onCreate = jest.fn();
     const { isValid, values, handleSubmit } = useTodoCreatePresenter({
-      onCreate
+      onCreate,
     });
 
     expect(isValid.value).toEqual(false);

@@ -14,38 +14,38 @@ describe('TodoList', () => {
         title: 'title',
         completed: false,
         createdAt: 123456789,
-        updatedAt: 123456789
+        updatedAt: 123456789,
       },
       {
         id: '2',
         title: 'title',
         completed: false,
         createdAt: 123456789,
-        updatedAt: 123456789
+        updatedAt: 123456789,
       },
       {
         id: '3',
         title: 'title',
         completed: false,
         createdAt: 123456789,
-        updatedAt: 123456789
-      }
+        updatedAt: 123456789,
+      },
     ];
     const router = createRouter({
       history: createMemoryHistory(),
-      routes
+      routes,
     });
     router.push('/todos');
     await router.isReady();
     const wrapper = mount(TodoList, {
       global: {
-        plugins: [router]
+        plugins: [router],
       },
       props: {
         offset: 0,
         limit: 10,
-        todos
-      }
+        todos,
+      },
     });
 
     expect(wrapper.html()).toMatchSnapshot();

@@ -43,20 +43,20 @@ export default defineComponent({
   props: {
     todos: {
       type: Array as PropType<Todo[]>,
-      required: true
+      required: true,
     },
     offset: {
       type: Number,
-      required: true
+      required: true,
     },
     limit: {
       type: Number,
-      required: true
-    }
+      required: true,
+    },
   },
   emits: {
     'change-offset': defineEmit<(value: string) => void>(),
-    'change-limit': defineEmit<(value: string) => void>()
+    'change-limit': defineEmit<(value: string) => void>(),
   },
   setup(props, { emit }) {
     const changeOffset = (event: Event) => {
@@ -73,9 +73,9 @@ export default defineComponent({
 
     return {
       changeOffset,
-      changeLimit
+      changeLimit,
     };
-  }
+  },
 });
 </script>
 

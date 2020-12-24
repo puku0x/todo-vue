@@ -11,5 +11,5 @@ export interface TodoState {
 export const initialState: TodoState = {
   isFetching: false,
   selectedId: null,
-  todos: []
+  todos: [],
 };

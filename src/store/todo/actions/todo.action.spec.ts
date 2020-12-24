@@ -17,7 +17,7 @@ import {
   REMOVE_REQUEST,
   REMOVE_SUCCESS,
   REMOVE_FAILURE,
-  actions
+  actions,
 } from './todo.action';
 
 describe('actions', () => {
@@ -30,22 +30,22 @@ describe('actions', () => {
         title: 'title',
         completed: false,
         createdAt: 123456789,
-        updatedAt: 123456789
+        updatedAt: 123456789,
       },
       {
         id: '2',
         title: 'title',
         completed: false,
         createdAt: 123456789,
-        updatedAt: 123456789
+        updatedAt: 123456789,
       },
       {
         id: '3',
         title: 'title',
         completed: false,
         createdAt: 123456789,
-        updatedAt: 123456789
-      }
+        updatedAt: 123456789,
+      },
     ];
 
     const spy = jest
@@ -92,7 +92,7 @@ describe('actions', () => {
       title: 'title',
       completed: false,
       createdAt: 123456789,
-      updatedAt: 123456789
+      updatedAt: 123456789,
     };
 
     const spy = jest.spyOn(todoService, 'fetch').mockResolvedValueOnce(todo);
@@ -129,14 +129,14 @@ describe('actions', () => {
 
   it('should commit CREATE_SUCCESS', async () => {
     const dto: TodoCreateDto = {
-      title: 'title'
+      title: 'title',
     };
     const todo: Todo = {
       id: '1',
       title: 'title',
       completed: false,
       createdAt: 123456789,
-      updatedAt: 123456789
+      updatedAt: 123456789,
     };
 
     const spy = jest.spyOn(todoService, 'create').mockResolvedValueOnce(todo);
@@ -154,7 +154,7 @@ describe('actions', () => {
 
   it('should commit CREATE_FAILURE', async () => {
     const dto: TodoCreateDto = {
-      title: 'title'
+      title: 'title',
     };
     const error = new Error();
 
@@ -178,14 +178,14 @@ describe('actions', () => {
     const dto: TodoUpdateDto = {
       id: '1',
       title: 'title',
-      completed: false
+      completed: false,
     };
     const todo: Todo = {
       id: '1',
       title: 'title',
       completed: false,
       createdAt: 123456789,
-      updatedAt: 123456789
+      updatedAt: 123456789,
     };
 
     const spy = jest.spyOn(todoService, 'update').mockResolvedValueOnce(todo);
@@ -206,7 +206,7 @@ describe('actions', () => {
     const dto: TodoUpdateDto = {
       id: '1',
       title: 'title',
-      completed: false
+      completed: false,
     };
     const error = new Error();
 

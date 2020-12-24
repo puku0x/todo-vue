@@ -12,9 +12,9 @@ export class TodoService {
     return await fetch(url.toString(), {
       method: 'GET',
       headers: {
-        'Content-Type': 'application/json'
-      }
-    }).then(res => res.json());
+        'Content-Type': 'application/json',
+      },
+    }).then((res) => res.json());
   }
 
   async fetch(id: string): Promise<Todo> {
@@ -22,9 +22,9 @@ export class TodoService {
     return await fetch(url.toString(), {
       method: 'GET',
       headers: {
-        'Content-Type': 'application/json'
-      }
-    }).then(res => res.json());
+        'Content-Type': 'application/json',
+      },
+    }).then((res) => res.json());
   }
 
   async create(todo: TodoCreateDto): Promise<Todo> {
@@ -33,9 +33,9 @@ export class TodoService {
       method: 'POST',
       body: JSON.stringify(todo),
       headers: {
-        'Content-Type': 'application/json'
-      }
-    }).then(res => res.json());
+        'Content-Type': 'application/json',
+      },
+    }).then((res) => res.json());
   }
 
   async update(id: string, todo: TodoUpdateDto): Promise<Todo> {
@@ -44,9 +44,9 @@ export class TodoService {
       method: 'PUT',
       body: JSON.stringify(todo),
       headers: {
-        'Content-Type': 'application/json'
-      }
-    }).then(res => res.json());
+        'Content-Type': 'application/json',
+      },
+    }).then((res) => res.json());
   }
 
   async remove(id: string): Promise<string> {
@@ -54,8 +54,8 @@ export class TodoService {
     await fetch(url.toString(), {
       method: 'DELETE',
       headers: {
-        'Content-Type': 'application/json'
-      }
+        'Content-Type': 'application/json',
+      },
     });
     return id;
   }

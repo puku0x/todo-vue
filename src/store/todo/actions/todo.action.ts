@@ -88,5 +88,5 @@ export const actions: ActionTree<TodoState, RootState> = {
       commit(REMOVE_FAILURE, error);
       throw error;
     }
-  }
+  },
 };

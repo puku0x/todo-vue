@@ -11,7 +11,7 @@ export const module: Module<TodoState, RootState> = {
   state: initialState,
   getters,
   actions,
-  mutations
+  mutations,
 };
 
 export * from './actions';
