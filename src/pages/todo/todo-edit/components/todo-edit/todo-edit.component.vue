@@ -32,7 +32,7 @@
 </template>
 
 <script lang="ts">
-import { PropType, defineComponent, defineEmit, toRef } from 'vue';
+import { PropType, defineComponent, toRef } from 'vue';
 
 import { Todo, TodoUpdateDto } from '@/models';
 
@@ -51,7 +51,7 @@ export default defineComponent({
     },
   },
   emits: {
-    'on-update': defineEmit<(id: string, todo: TodoUpdateDto) => void>(),
+    'on-update': (id: string, todo: TodoUpdateDto) => !!id && !!todo,
   },
   setup(props, { emit }) {
     const onUpdate = (id: string, todo: TodoUpdateDto) => {
