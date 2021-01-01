@@ -33,10 +33,10 @@
     "@vue/test-utils": "~2.0.0-0",
     "eslint": "~7.16.0",
     "eslint-plugin-prettier": "~3.3.0",
-    "eslint-plugin-vue": "~7.3.0",
+    "eslint-plugin-vue": "~7.4.0",
     "lint-staged": "~10.5.0",
     "prettier": "~2.2.0",
-    "sass": "~1.30.0",
+    "sass": "~1.32.0",
     "sass-loader": "~10.1.0",
     "typescript": "~4.1.0",
     "vue-jest": "~5.0.0-0"
