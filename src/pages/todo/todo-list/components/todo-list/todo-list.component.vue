@@ -34,7 +34,7 @@
 </template>
 
 <script lang="ts">
-import { PropType, defineComponent, defineEmit } from 'vue';
+import { PropType, defineComponent } from 'vue';
 
 import { Todo } from '@/models';
 
@@ -55,8 +55,8 @@ export default defineComponent({
     },
   },
   emits: {
-    'change-offset': defineEmit<(value: string) => void>(),
-    'change-limit': defineEmit<(value: string) => void>(),
+    'change-offset': (value: string) => !!value,
+    'change-limit': (value: string) => !!value,
   },
   setup(props, { emit }) {
     const changeOffset = (event: Event) => {
