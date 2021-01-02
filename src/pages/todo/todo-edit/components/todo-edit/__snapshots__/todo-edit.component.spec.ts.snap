@@ -4,7 +4,7 @@ exports[`TodoEdit render 1`] = `
 <a href="/todos" class="">Back to list</a>
 <h2>todo-edit</h2>
 <form novalidate="">
-  <p><button type="submit"> Save </button></p>
+  <p><button type="submit">Save</button></p>
   <table>
     <tbody>
       <tr>
