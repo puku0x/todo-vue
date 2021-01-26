@@ -20,6 +20,8 @@ import {
   actions,
 } from './todo.action';
 
+type AsyncFunction<T = void> = (...args: unknown[]) => Promise<T>;
+
 describe('actions', () => {
   it('should commit FETCH_ALL_SUCCESS', async () => {
     const offset = 0;
@@ -55,8 +57,7 @@ describe('actions', () => {
     const commit = jest.fn();
     const arg = { offset, limit };
 
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    await (actions[FETCH_ALL_REQUEST] as Function)({ commit }, arg);
+    await (actions[FETCH_ALL_REQUEST] as AsyncFunction)({ commit }, arg);
 
     expect(commit).toHaveBeenCalledWith(FETCH_ALL_REQUEST);
     expect(spy).toHaveBeenCalledWith(offset, limit);
@@ -76,8 +77,7 @@ describe('actions', () => {
     const arg = { offset, limit };
 
     try {
-      // eslint-disable-next-line @typescript-eslint/ban-types
-      await (actions[FETCH_ALL_REQUEST] as Function)({ commit }, arg);
+      await (actions[FETCH_ALL_REQUEST] as AsyncFunction)({ commit }, arg);
     } catch {
       expect(commit).toHaveBeenCalledWith(FETCH_ALL_REQUEST);
       expect(spy).toHaveBeenCalledWith(offset, limit);
@@ -100,8 +100,7 @@ describe('actions', () => {
     const commit = jest.fn();
     const arg = { id };
 
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    await (actions[FETCH_REQUEST] as Function)({ commit }, arg);
+    await (actions[FETCH_REQUEST] as AsyncFunction)({ commit }, arg);
 
     expect(commit).toHaveBeenCalledWith(FETCH_REQUEST, id);
     expect(spy).toHaveBeenCalledWith(id);
@@ -118,8 +117,7 @@ describe('actions', () => {
     const arg = { id };
 
     try {
-      // eslint-disable-next-line @typescript-eslint/ban-types
-      await (actions[FETCH_REQUEST] as Function)({ commit }, arg);
+      await (actions[FETCH_REQUEST] as AsyncFunction)({ commit }, arg);
     } catch {
       expect(commit).toHaveBeenCalledWith(FETCH_REQUEST, id);
       expect(spy).toHaveBeenCalledWith(id);
@@ -144,8 +142,7 @@ describe('actions', () => {
     const commit = jest.fn();
     const arg = { todo: dto };
 
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    await (actions[CREATE_REQUEST] as Function)({ commit }, arg);
+    await (actions[CREATE_REQUEST] as AsyncFunction)({ commit }, arg);
 
     expect(commit).toHaveBeenCalledWith(CREATE_REQUEST);
     expect(spy).toHaveBeenCalledWith(dto);
@@ -164,8 +161,7 @@ describe('actions', () => {
     const arg = { todo: dto };
 
     try {
-      // eslint-disable-next-line @typescript-eslint/ban-types
-      await (actions[CREATE_REQUEST] as Function)({ commit }, arg);
+      await (actions[CREATE_REQUEST] as AsyncFunction)({ commit }, arg);
     } catch {
       expect(commit).toHaveBeenCalledWith(CREATE_REQUEST);
       expect(spy).toHaveBeenCalledWith(dto);
@@ -193,8 +189,7 @@ describe('actions', () => {
     const commit = jest.fn();
     const arg = { id, todo: dto };
 
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    await (actions[UPDATE_REQUEST] as Function)({ commit }, arg);
+    await (actions[UPDATE_REQUEST] as AsyncFunction)({ commit }, arg);
 
     expect(commit).toHaveBeenCalledWith(UPDATE_REQUEST);
     expect(spy).toHaveBeenCalledWith(id, dto);
@@ -216,8 +211,7 @@ describe('actions', () => {
     const arg = { id, todo: dto };
 
     try {
-      // eslint-disable-next-line @typescript-eslint/ban-types
-      await (actions[UPDATE_REQUEST] as Function)({ commit }, arg);
+      await (actions[UPDATE_REQUEST] as AsyncFunction)({ commit }, arg);
     } catch {
       expect(commit).toHaveBeenCalledWith(UPDATE_REQUEST);
       expect(spy).toHaveBeenCalledWith(id, dto);
@@ -233,8 +227,7 @@ describe('actions', () => {
     const commit = jest.fn();
     const arg = { id };
 
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    await (actions[REMOVE_REQUEST] as Function)({ commit }, arg);
+    await (actions[REMOVE_REQUEST] as AsyncFunction)({ commit }, arg);
 
     expect(commit).toHaveBeenCalledWith(REMOVE_REQUEST);
     expect(spy).toHaveBeenCalledWith(id);
@@ -251,8 +244,7 @@ describe('actions', () => {
     const arg = { id };
 
     try {
-      // eslint-disable-next-line @typescript-eslint/ban-types
-      await (actions[REMOVE_REQUEST] as Function)({ commit }, arg);
+      await (actions[REMOVE_REQUEST] as AsyncFunction)({ commit }, arg);
     } catch {
       expect(commit).toHaveBeenCalledWith(REMOVE_REQUEST);
       expect(spy).toHaveBeenCalledWith(id);
