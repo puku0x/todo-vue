@@ -31,7 +31,7 @@
     "@vue/eslint-config-prettier": "~6.0.0",
     "@vue/eslint-config-typescript": "~7.0.0",
     "@vue/test-utils": "~2.0.0-0",
-    "eslint": "~7.18.0",
+    "eslint": "~7.19.0",
     "eslint-plugin-prettier": "~3.3.0",
     "eslint-plugin-vue": "~7.5.0",
     "lint-staged": "~10.5.0",
@@ -45,9 +45,6 @@
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "*.{js,jsx,vue,ts,tsx}": [
-      "vue-cli-service lint",
-      "git add"
-    ]
+    "*.{js,jsx,vue,ts,tsx}": "npm run lint"
   }
 }
