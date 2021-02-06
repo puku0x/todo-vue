@@ -34,7 +34,7 @@ export default defineComponent({
     },
   },
   emits: {
-    'on-create': (todo: TodoCreateDto) => !!todo,
+    'on-create': (_todo: TodoCreateDto) => true,
   },
   setup(props, { emit }) {
     const onCreate = (todo: TodoCreateDto) => {
