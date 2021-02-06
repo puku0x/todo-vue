@@ -9,13 +9,13 @@ import { featureKey } from '../states';
 
 export const useTodoStore = () => {
   const store = useStore();
-  const isFetching = computed<boolean>(
+  const isFetching = computed<ReturnType<typeof getters.isFetching>>(
     () => store.getters[`${featureKey}/${getters.isFetching.name}`]
   );
-  const todos = computed<Todo[]>(
+  const todos = computed<ReturnType<typeof getters.todos>>(
     () => store.getters[`${featureKey}/${getters.todos.name}`]
   );
-  const todo = computed<Todo | null>(
+  const todo = computed<ReturnType<typeof getters.todo>>(
     () => store.getters[`${featureKey}/${getters.todo.name}`]
   );
 
