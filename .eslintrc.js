@@ -25,5 +25,16 @@ module.exports = {
         jest: true,
       },
     },
+    {
+      files: ['*.vue'],
+      rules: {
+        '@typescript-eslint/no-unused-vars': [
+          'error',
+          {
+            argsIgnorePattern: '^_',
+          },
+        ],
+      },
+    },
   ],
 };
