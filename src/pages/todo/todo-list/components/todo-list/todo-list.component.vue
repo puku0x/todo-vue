@@ -55,8 +55,8 @@ export default defineComponent({
     },
   },
   emits: {
-    'change-offset': (value: string) => !!value,
-    'change-limit': (value: string) => !!value,
+    'change-offset': (_offset: string) => true,
+    'change-limit': (_limit: string) => true,
   },
   setup(props, { emit }) {
     const changeOffset = (event: Event) => {
