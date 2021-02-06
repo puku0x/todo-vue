@@ -51,7 +51,7 @@ export default defineComponent({
     },
   },
   emits: {
-    'on-update': (id: string, todo: TodoUpdateDto) => !!id && !!todo,
+    'on-update': (_id: string, _todo: TodoUpdateDto) => true,
   },
   setup(props, { emit }) {
     const onUpdate = (id: string, todo: TodoUpdateDto) => {
