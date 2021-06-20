@@ -1,4 +1,9 @@
-import { Todo, TodoCreateDto, TodoUpdateDto } from '@/models';
+import {
+  generateTodoCreateDtoMock,
+  generateTodoMock,
+  generateTodosMock,
+  generateTodoUpdateDtoMock,
+} from '@/models/testing';
 import { todoService } from '@/services';
 
 import {
@@ -26,29 +31,7 @@ describe('actions', () => {
   it('should commit FETCH_ALL_SUCCESS', async () => {
     const offset = 0;
     const limit = 10;
-    const todos: Todo[] = [
-      {
-        id: '1',
-        title: 'title',
-        completed: false,
-        createdAt: 123456789,
-        updatedAt: 123456789,
-      },
-      {
-        id: '2',
-        title: 'title',
-        completed: false,
-        createdAt: 123456789,
-        updatedAt: 123456789,
-      },
-      {
-        id: '3',
-        title: 'title',
-        completed: false,
-        createdAt: 123456789,
-        updatedAt: 123456789,
-      },
-    ];
+    const todos = generateTodosMock();
 
     const spy = jest
       .spyOn(todoService, 'fetchAll')
@@ -87,13 +70,7 @@ describe('actions', () => {
 
   it('should commit FETCH_SUCCESS', async () => {
     const id = '1';
-    const todo: Todo = {
-      id: '1',
-      title: 'title',
-      completed: false,
-      createdAt: 123456789,
-      updatedAt: 123456789,
-    };
+    const todo = generateTodoMock();
 
     const spy = jest.spyOn(todoService, 'fetch').mockResolvedValueOnce(todo);
 
@@ -126,16 +103,8 @@ describe('actions', () => {
   });
 
   it('should commit CREATE_SUCCESS', async () => {
-    const dto: TodoCreateDto = {
-      title: 'title',
-    };
-    const todo: Todo = {
-      id: '1',
-      title: 'title',
-      completed: false,
-      createdAt: 123456789,
-      updatedAt: 123456789,
-    };
+    const dto = generateTodoCreateDtoMock();
+    const todo = generateTodoMock();
 
     const spy = jest.spyOn(todoService, 'create').mockResolvedValueOnce(todo);
 
@@ -150,9 +119,7 @@ describe('actions', () => {
   });
 
   it('should commit CREATE_FAILURE', async () => {
-    const dto: TodoCreateDto = {
-      title: 'title',
-    };
+    const dto = generateTodoCreateDtoMock();
     const error = new Error();
 
     const spy = jest.spyOn(todoService, 'create').mockRejectedValueOnce(error);
@@ -171,18 +138,8 @@ describe('actions', () => {
 
   it('should commit UPDATE_SUCCESS', async () => {
     const id = '1';
-    const dto: TodoUpdateDto = {
-      id: '1',
-      title: 'title',
-      completed: false,
-    };
-    const todo: Todo = {
-      id: '1',
-      title: 'title',
-      completed: false,
-      createdAt: 123456789,
-      updatedAt: 123456789,
-    };
+    const dto = generateTodoUpdateDtoMock();
+    const todo = generateTodoMock();
 
     const spy = jest.spyOn(todoService, 'update').mockResolvedValueOnce(todo);
 
@@ -198,11 +155,7 @@ describe('actions', () => {
 
   it('should commit UPDATE_FAILURE', async () => {
     const id = '1';
-    const dto: TodoUpdateDto = {
-      id: '1',
-      title: 'title',
-      completed: false,
-    };
+    const dto = generateTodoUpdateDtoMock();
     const error = new Error();
 
     const spy = jest.spyOn(todoService, 'update').mockRejectedValueOnce(error);

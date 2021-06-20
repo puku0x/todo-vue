@@ -1,3 +1,5 @@
+import { generateTodosMock } from '@/models/testing';
+
 import { TodoState, initialState } from '../states';
 import { isFetching, selectedId, todos, todo } from './todo.getter';
 
@@ -23,29 +25,7 @@ describe('getters', () => {
   it('should get todos', () => {
     const state: TodoState = {
       ...initialState,
-      todos: [
-        {
-          id: '1',
-          title: 'title',
-          completed: false,
-          createdAt: 123456789,
-          updatedAt: 123456789,
-        },
-        {
-          id: '2',
-          title: 'title',
-          completed: false,
-          createdAt: 123456789,
-          updatedAt: 123456789,
-        },
-        {
-          id: '3',
-          title: 'title',
-          completed: false,
-          createdAt: 123456789,
-          updatedAt: 123456789,
-        },
-      ],
+      todos: generateTodosMock(),
     };
 
     expect(todos(state)).toEqual(state.todos);
@@ -55,29 +35,7 @@ describe('getters', () => {
     const state: TodoState = {
       ...initialState,
       selectedId: '1',
-      todos: [
-        {
-          id: '1',
-          title: 'title',
-          completed: false,
-          createdAt: 123456789,
-          updatedAt: 123456789,
-        },
-        {
-          id: '2',
-          title: 'title',
-          completed: false,
-          createdAt: 123456789,
-          updatedAt: 123456789,
-        },
-        {
-          id: '3',
-          title: 'title',
-          completed: false,
-          createdAt: 123456789,
-          updatedAt: 123456789,
-        },
-      ],
+      todos: generateTodosMock(),
     };
 
     expect(todo(state)).toEqual(state.todos[0]);

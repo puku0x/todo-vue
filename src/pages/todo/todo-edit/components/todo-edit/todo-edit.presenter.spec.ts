@@ -1,19 +1,13 @@
 import { ref } from 'vue';
 
-import { Todo } from '@/models';
+import { generateTodoMock } from '@/models/testing';
 
 import { useTodoEditPresenter } from './todo-edit.presenter';
 
 describe('useTodoEditPresenter', () => {
   it('should handle submit', async () => {
     const onUpdate = jest.fn();
-    const todo = ref({
-      id: '1',
-      title: 'title',
-      completed: false,
-      createdAt: 123456789,
-      updatedAt: 123456789,
-    } as Todo);
+    const todo = ref(generateTodoMock());
     const { isValid, values, handleSubmit } = useTodoEditPresenter({
       todo,
       onUpdate,

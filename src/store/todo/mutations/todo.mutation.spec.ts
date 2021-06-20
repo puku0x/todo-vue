@@ -1,4 +1,5 @@
 import { Todo } from '@/models';
+import { generateTodoMock, generateTodosMock } from '@/models/testing';
 
 import {
   FETCH_ALL_REQUEST,
@@ -36,29 +37,7 @@ describe('mutations', () => {
       ...initialState,
       isFetching: true,
     };
-    const todos: Todo[] = [
-      {
-        id: '1',
-        title: 'title',
-        completed: false,
-        createdAt: 123456789,
-        updatedAt: 123456789,
-      },
-      {
-        id: '2',
-        title: 'title',
-        completed: false,
-        createdAt: 123456789,
-        updatedAt: 123456789,
-      },
-      {
-        id: '3',
-        title: 'title',
-        completed: false,
-        createdAt: 123456789,
-        updatedAt: 123456789,
-      },
-    ];
+    const todos = generateTodosMock();
 
     mutations[FETCH_ALL_SUCCESS](state, todos);
 
@@ -94,13 +73,7 @@ describe('mutations', () => {
       ...initialState,
       isFetching: true,
     };
-    const todo: Todo = {
-      id: '3',
-      title: 'title',
-      completed: false,
-      createdAt: 123456789,
-      updatedAt: 123456789,
-    };
+    const todo = generateTodoMock();
     const todos: Todo[] = [...state.todos, todo];
 
     mutations[FETCH_SUCCESS](state, todo);
@@ -135,13 +108,7 @@ describe('mutations', () => {
       ...initialState,
       isFetching: true,
     };
-    const todo: Todo = {
-      id: '1',
-      title: 'title',
-      completed: false,
-      createdAt: 123456789,
-      updatedAt: 123456789,
-    };
+    const todo = generateTodoMock();
     const todos: Todo[] = [todo];
 
     mutations[CREATE_SUCCESS](state, todo);
@@ -175,36 +142,12 @@ describe('mutations', () => {
     const state: TodoState = {
       ...initialState,
       isFetching: true,
-      todos: [
-        {
-          id: '1',
-          title: 'title',
-          completed: false,
-          createdAt: 123456789,
-          updatedAt: 123456789,
-        },
-        {
-          id: '2',
-          title: 'title',
-          completed: false,
-          createdAt: 123456789,
-          updatedAt: 123456789,
-        },
-        {
-          id: '3',
-          title: 'title',
-          completed: false,
-          createdAt: 123456789,
-          updatedAt: 123456789,
-        },
-      ],
+      todos: generateTodosMock(),
     };
     const todo: Todo = {
+      ...generateTodoMock(),
       id: '2',
       title: 'update',
-      completed: false,
-      createdAt: 123456789,
-      updatedAt: 123456789,
     };
     const todos = state.todos.map((t) => (t.id === todo.id ? todo : t));
 
@@ -239,29 +182,7 @@ describe('mutations', () => {
     const state: TodoState = {
       ...initialState,
       isFetching: true,
-      todos: [
-        {
-          id: '1',
-          title: 'title',
-          completed: false,
-          createdAt: 123456789,
-          updatedAt: 123456789,
-        },
-        {
-          id: '2',
-          title: 'title',
-          completed: false,
-          createdAt: 123456789,
-          updatedAt: 123456789,
-        },
-        {
-          id: '3',
-          title: 'title',
-          completed: false,
-          createdAt: 123456789,
-          updatedAt: 123456789,
-        },
-      ],
+      todos: generateTodosMock(),
     };
     const id = '2';
     const todos = state.todos.filter((t) => t.id !== id);
